@@ -1,0 +1,27 @@
+{
+  "name": "hw_js_with_npm",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/smileformemylove/hw_js_with_npm.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/smileformemylove/hw_js_with_npm/issues"
+  },
+  "homepage": "https://github.com/smileformemylove/hw_js_with_npm#readme",
+  "description": "",
+  "devDependencies": {
+    "@eslint/js": "^9.9.0",
+    "eslint": "^9.9.0",
+    "globals": "^15.9.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}

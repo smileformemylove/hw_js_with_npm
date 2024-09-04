@@ -11,7 +11,7 @@ for (let i = 0; i < length; i++){
 
 
 console.log(arr);
-console.log(arr.sort(function(a, b){
+console.log(arr.sort((a, b) =>{
     return a - b;
 }));
 arr.splice(1, 3);

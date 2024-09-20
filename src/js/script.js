@@ -1,34 +1,29 @@
-'use strict'
+'use strict';
 
-const users = [
-    {
-        name: "John",
-        age: "18",
-    },
-    {
-        name: "Mark",
-        age: "28",
-    },
-    {
-        name: "Nick",
-        age: "25",
-    },
-    {
-        name: "Sasha",
-        age: "32",
-    },
-    {
-        name: "Steve",
-        age: "18",
-    },
-]
+function myBind(fn, context, ...args) {
+    return function(...newArgs) {
+        const boundFunction = function() {
+            return fn.apply(context, [...args, ...newArgs]);
+        };
 
-const getUsersInfo = function(){
-    console.log(this.name + ` is ` + this.age + ` years old`)
+        if (this instanceof myBind) {
+            const instance = Object.create(fn.prototype);
+            const result = boundFunction();
+            return (result !== null && typeof result === 'object') ? result : instance;
+        }
+
+        return boundFunction();
+    };
 }
 
-// реалізуємо bind
-for (const user of users){
-    const bind = getUsersInfo.bind(user , user.name);
-    bind();
+function add(y) {
+    return this.x + y;
 }
+
+const obj = { x: 2 };
+
+const boundAdd = myBind(add, obj);
+console.log(boundAdd(3));
+
+
+

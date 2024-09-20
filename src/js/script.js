@@ -1,9 +1,17 @@
 'use strict';
 
+function myApply(func, context, args) {
+    context.fn = func;
+    const result = context.fn(...args);
+    delete context.fn;
+    return result;
+}
+
+
 function myBind(fn, context, ...args) {
     return function(...newArgs) {
         const boundFunction = function() {
-            return fn.apply(context, [...args, ...newArgs]);
+            return myApply(fn, context, [...args, ...newArgs]);
         };
 
         if (this instanceof myBind) {

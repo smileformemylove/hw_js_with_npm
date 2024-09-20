@@ -1,29 +1,31 @@
-'use strict'
-
+'use strict';
 
 function insertWordInto(initialStr) {
     let originalWords = initialStr.split(' ');
-    let index = 1;
+    let index = 0;
 
     return function(word) {
         let wordsCopy = [...originalWords];
 
-        if (index === 1) {
-            wordsCopy.splice(index, 0, word);
-        } else if (index === 0) {
-            wordsCopy.unshift(word);
-        } else if (index === wordsCopy.length) {
-            wordsCopy.push(word);
-        }
+        wordsCopy.splice(index, 0, word);
 
-        index = (index + 1) % 3;
+        index = (index + 1) % (wordsCopy.length);
+
         return wordsCopy.join(' ');
     };
 }
 
-const insert = insertWordInto('hello world');
+const insert = insertWordInto('hello world good car apple dog apple dog');
 console.log(insert('Odesa'));
 console.log(insert('Odesa'));
 console.log(insert('Odesa'));
 console.log(insert('Odesa'));
+console.log(insert('Odesa'));
+console.log(insert('Odesa'));
+console.log(insert('Odesa'));
+console.log(insert('Odesa'));
+console.log(insert('Odesa'));
+console.log(insert('Odesa'));
+console.log(insert('Odesa'));
+
 

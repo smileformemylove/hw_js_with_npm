@@ -1,37 +1,32 @@
 'use strict';
 
-function myApply(func, context, args) {
-    context.fn = func;
-    const result = context.fn(...args);
-    delete context.fn;
+
+const user = {
+    firstName : 'Sasha',
+    lastName : 'Ddos'
+}
+
+const getFullName = function(){
+    return `${this.firstName} ${this.lastName}`
+}
+
+const myApply = (func, context, ...args) => {
+    let result = null
+    context.func = func;
+    result = context.func(...args);
+    delete context.func;
     return result;
 }
 
+const bind = (func, context, args = []) => {
+    if(!func) return undefined;
 
-function myBind(fn, context, ...args) {
-    return function(...newArgs) {
-        const boundFunction = function() {
-            return myApply(fn, context, [...args, ...newArgs]);
-        };
-
-        if (this instanceof myBind) {
-            const instance = Object.create(fn.prototype);
-            const result = boundFunction();
-            return (result !== null && typeof result === 'object') ? result : instance;
-        }
-
-        return boundFunction();
-    };
+    return function(){
+        return myApply(func, context, ...args)
+    }
 }
 
-function add(y) {
-    return this.x + y;
-}
-
-const obj = { x: 2 };
-
-const boundAdd = myBind(add, obj);
-console.log(boundAdd(3));
-
-
+const bindGetFullName = bind(getFullName, user);
+console.log(bindGetFullName);
+console.log(bindGetFullName());
 

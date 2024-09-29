@@ -32,7 +32,6 @@ const generateTable = () => {
     return table;
 };
 
-appendHTMLElement(document.body, generateTable())
 
 const tableContainer = document.getElementById('myTable');
 tableContainer.innerHTML = '';

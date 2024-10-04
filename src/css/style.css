@@ -1,0 +1,15 @@
+#shadowDiv[data-visible="false"] {
+    display: none;
+}
+
+#shadowDiv[data-visible="true"] {
+    display: block;
+    border: 1px solid #ccc;
+    padding: 5px;
+    width: 100px;
+    margin-top: 2px;
+    background-color: pink;
+    position: absolute;
+    left: 170px;
+    top: 0;
+}

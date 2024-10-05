@@ -18,13 +18,13 @@ const addToPage=(elements)=>{
     document.body.appendChild(elements.shadowDiv);
 }
 
-const addEvent = ({ hoverDiv, shadowDiv }) => {
-    hoverDiv.addEventListener('mouseover', () => {
-        shadowDiv.setAttribute('data-visible', 'true');
+const addEvent = (elements) => {
+    elements.hoverDiv.addEventListener('mouseover', () => {
+        elements.shadowDiv.setAttribute('data-visible', 'true');
     });
 
-    hoverDiv.addEventListener('mouseout', () => {
-        shadowDiv.setAttribute('data-visible', 'false');
+    elements.hoverDiv.addEventListener('mouseout', () => {
+        elements.shadowDiv.setAttribute('data-visible', 'false');
     });
 };
 

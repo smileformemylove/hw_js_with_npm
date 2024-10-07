@@ -16,7 +16,6 @@
 
             ul.appendChild(li);
         });
-
         return ul;
     }
 

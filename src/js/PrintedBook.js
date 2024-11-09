@@ -16,7 +16,7 @@ class PrintedBook extends Book {
     }
 
     getDescription() {
-        return super.getDescription(`It has ${this._pageCount} pages.`);
+        return `${super.getDescription()} It has ${this._pageCount} pages.`;
     }
 
     get pageCount() {
@@ -42,6 +42,8 @@ console.log(myBook1.getDescription())
 console.log(myBook1.author)
 console.log(myBook1.year)
 console.log(myBook1.pageCount)
+
+console.log("----------------")
 
 
 

@@ -17,7 +17,7 @@ class Ebook extends Book {
     };
 
     getDescription() {
-        return super.getDescription(`File size is ${this._fileSize} MB.`);
+        return `${super.getDescription()} File size is ${this._fileSize} MB.`;
     };
 
     get fileSize() {

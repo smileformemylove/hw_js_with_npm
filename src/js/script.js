@@ -25,7 +25,9 @@ class PremiumEmailService extends EmailService{
     getPremiumEmails() {
         return this.premiumEmails;
     }
+
 }
+
 
 class EnterpriseEmailService extends EmailService{
 

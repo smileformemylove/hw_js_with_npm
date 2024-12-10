@@ -31,9 +31,37 @@ const getPostById = async () => {
                  <h2>"title": ${post.title}</h2> 
                  <h2>"body": ${post.body}</h2>`;
 
+            const commentButton = document.createElement('button');
+            commentButton.textContent = 'Отримати коментарі';
+            myContainer.appendChild(commentButton);
+
+            const commentsContainer = document.createElement('div');
+            myContainer.appendChild(commentsContainer);
+
+            commentButton.addEventListener('click', async () => {
+                try {
+                    let comments = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`);
+                    comments = await comments.json();
+
+                    if (comments.length > 0) {
+                        const comment = comments[0];
+                        commentsContainer.innerHTML =
+                            `<div>
+                                <p>Email: ${comment.email}</p>
+                                <p>Comment: ${comment.body}</p>
+                            </div>`;
+                    } else {
+                        commentsContainer.textContent = 'Коментарів немає.';
+                    }
+                } catch (err) {
+                    commentsContainer.textContent = 'Не вдалося завантажити коментар.';
+                }
+            });
+
         } catch (err) {
-            myContainer.textContent = 'Пост не знайдено або виникла помилка.'
+            myContainer.textContent = 'Пост не знайдено або виникла помилка.';
         }
     });
 };
+
 getPostById();

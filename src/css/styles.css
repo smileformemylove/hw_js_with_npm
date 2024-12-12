@@ -1,0 +1,16 @@
+.weather-container {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 5em;
+}
+.weather-icon {
+    width: 5em;
+    height: 5em;
+}
+.weather-info {
+    margin-top: 1.2em;
+    font-size: 1.2em;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
